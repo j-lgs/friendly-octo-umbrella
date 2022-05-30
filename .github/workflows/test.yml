@@ -12,4 +12,4 @@ jobs:
         uses: docker/setup-qemu-action@v2
       - run: curl -o slirp4netns --fail -L https://github.com/rootless-containers/slirp4netns/releases/download/v1.2.0/slirp4netns-$(uname -m) && chmod +x slirp4netns
       - run: curl -o talos-amd64.iso --fail -L https://github.com/siderolabs/talos/releases/download/v1.0.5/talos-amd64.iso
-      - run: runtest.sh
+      - run: ./runtest.sh
