@@ -45,10 +45,10 @@ ip link set tap3 up
 
 ip a
 
-RAND_MAC_1=$(printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256)))
-RAND_MAC_2=$(printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256)))
-RAND_MAC_3=$(printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256)))
-RAND_MAC_4=$(printf 'DE:AD:BE:EF:%02X:%02X\n' $((RANDOM%256)) $((RANDOM%256)))
+RAND_MAC_1="de:ad:be:ef:54:be"
+RAND_MAC_2="de:ad:be:ef:ec:72"
+RAND_MAC_3="de:ad:be:ef:88:c0"
+RAND_MAC_4="de:ad:be:ef:41:1c"
 
 qemu-system-x86_64 -m 1024 -cdrom talos-amd64.iso -netdev tap,id=mynet0,ifname=tap0,script=no,downscript=no -device virtio-net-pci,netdev=mynet0,mac=$RAND_MAC_1 -serial file:serial-1.log -display none -daemonize -pidfile ./qemu-1.pid
 
