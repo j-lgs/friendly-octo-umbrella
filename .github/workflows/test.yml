@@ -7,8 +7,7 @@ jobs:
   qemu:
     runs-on: ubuntu-latest
     steps:
-      - name: Set up QEMU
-        uses: docker/setup-qemu-action@v2
+      - run: sudo apt update && sudo apt install qemu-system-x86_64
       - name: Checkout source
         uses: actions/checkout@v3
       - run: curl -o slirp4netns --fail -L https://github.com/rootless-containers/slirp4netns/releases/download/v1.2.0/slirp4netns-$(uname -m) && chmod +x slirp4netns
