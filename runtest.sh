@@ -1,7 +1,7 @@
 #!/bin/sh
 # kill parent processes
 cleanup() {
-   gpkill -P $$
+   pkill -P $$
 }
 
 # Setup signals to kill child processes on exit.
