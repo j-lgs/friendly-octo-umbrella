@@ -67,3 +67,4 @@ ping -c 5 10.0.2.16
 ping -c 5 10.0.2.17
 ping -c 5 10.0.2.18
 
+cat serial-3.log
