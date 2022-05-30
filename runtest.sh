@@ -13,6 +13,11 @@ for sig in INT QUIT HUP TERM; do
 done
 trap cleanup EXIT
 
+touch serial-1.log && chown 1000:1000 serial-1.log
+touch serial-2.log && chown 1000:1000 serial-2.log
+touch serial-3.log && chown 1000:1000 serial-3.log
+touch serial-4.log && chown 1000:1000 serial-4.log
+
 unshare --net --mount sh -c 'sleep 360' &
 pid=$!
 sleep 0.1
