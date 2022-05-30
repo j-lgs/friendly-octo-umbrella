@@ -16,6 +16,9 @@ trap cleanup EXIT
 unshare --net --mount sh -c 'sleep 360' &
 pid="$!"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> cd4559d (a)
 ./slirp4netns --configure --mtu=65520 --disable-host-loopback $pid tap9 > /dev/null 2>&1 &
 nsenter --wd="$(pwd)" -t $pid -m -n --preserve ./runvm.sh
 =======
