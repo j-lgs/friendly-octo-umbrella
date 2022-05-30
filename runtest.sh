@@ -14,9 +14,9 @@ done
 trap cleanup EXIT
 
 unshare --user --map-root-user --net --mount sh -c 'sleep 1800' &
-pid="$(echo $!)"
+pid="$!"
 ./slirp4netns --configure --mtu=65520 "$pid" tap0 > /dev/null 2>&1 &
-slirppid=$(echo $!)"
+slirppid="$!"
 nsenter --wd="$(pwd)" -t "$pid" -U -m -n --preserve sh -c 'qemu-system-x86_64 -m 512 talos-amd64.iso -netdev user,id=mynet0 -device e1000,netdev=mynet0 --serial mon:stdio'
 
 kill "$pid"
