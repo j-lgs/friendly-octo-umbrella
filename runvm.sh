@@ -14,7 +14,7 @@ for sig in INT QUIT HUP TERM; do
 done
 trap cleanup EXIT
 
-timeout="30"
+timeout="60"
 
 ip link add br0 type bridge
 ip tuntap add dev tap0 mode tap
