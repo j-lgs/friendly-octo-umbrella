@@ -1,3 +1,18 @@
+#!/bin/sh
+# kill parent processes
+cleanup() {
+    pkill -P $$
+}
+
+# Setup signals to kill child processes on exit.
+for sig in INT QUIT HUP TERM; do
+  trap "
+    cleanup
+    trap - $sig EXIT
+    kill -s $sig "'"$$"' "$sig"
+done
+trap cleanup EXIT
+
 qemu-system-x86_64 -m 512 talos-amd64.iso -netdev user,id=mynet0 -device e1000,netdev=mynet0 -serial file:serial.log -display none -daemonize
 echo $! > /tmp/vmpid
 

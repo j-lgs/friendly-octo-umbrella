@@ -21,7 +21,7 @@ nsenter --wd="$(pwd)" -t $pid -m -n --preserve ./runvm.sh
 =======
 ./slirp4netns --configure --mtu=65520 "$pid" tap0 > /dev/null 2>&1 &
 slirppid="$!"
-nsenter --wd="$(pwd)" -t "$pid" -U -m -n --preserve runvm.sh
+nsenter --wd="$(pwd)" -t "$pid" -U -m -n --preserve ./runvm.sh
 
 kill "$pid"
 kill "$slirppid"
